@@ -8,29 +8,29 @@ const equalsBtn=document.querySelector('.equal');
 let operation;
 
 function appendNumbers(number){
-    if(number=== "." && currDisplay.innerHTML.includes(".")) return;
-    currDisplay.innerHTML += number;
+    if(number=== "." && currDisplay.innerText.includes(".")) return;
+    currDisplay.innerText += number;
 }
 
 function chooseOperation(operands){
-    if(currDisplay.innerHTML==="") return;
+    if(currDisplay.innerText==="") return;
     compute(operands);
     operation=operands;
-    currDisplay.innerHTML += operands;
-    prevDisplay.innerHTML = currDisplay.innerHTML;
-    currDisplay.innerHTML = "";
+    currDisplay.innerText += operands;
+    prevDisplay.innerText = currDisplay.innerText;
+    currDisplay.innerText = "";
 
 }
 
 function clearDisp(){
-    currDisplay.innerHTML="";
-    prevDisplay.innerHTML="";    
+    currDisplay.innerText="";
+    prevDisplay.innerText="";    
 }
 
 function compute(operands){
     let result;
-    const prevDisplayValue=parseFloat(prevDisplay.innerHTML);
-    const currentValue=parseFloat(currDisplay.innerHTML);
+    const prevDisplayValue=parseFloat(prevDisplay.innerText);
+    const currentValue=parseFloat(currDisplay.innerText);
 
     if(isNaN(prevDisplayValue) || isNaN(currentValue)) return;
 
@@ -76,5 +76,5 @@ equalsBtn.addEventListener("click",()=>{
 });
 
 delBtn.addEventListener("click",()=>{
-    currDisplay.innerText=currentValue.innerText.slice(0,-1);
+    currDisplay.innerText=currDisplay.innerText.slice(0,-1);
 });
